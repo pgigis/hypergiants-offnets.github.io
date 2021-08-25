@@ -72,7 +72,7 @@ function findOffnetsPerASN(){
 
 function findOffnetsPerHypergiant(){
 
-	if ($("#findOffnetsASNInput").val() == "null"){
+	if ($("#inputHypergiant").val() == "null"){
 		return;
 	}
 
@@ -89,6 +89,5 @@ function findOffnetsPerHypergiant(){
 			$("#id_hg_asns").html("<p class=\"mt-3\"><b>" + $("#inputHypergiant").val().capitalize() + " operates off-nets in the following ASes "  + "</b></br><div class=\"alert alert-success mt-1\" style=\"overflow-y: scroll;max-height: 240px;\" role=\"alert\">" + responseJson.sort(function(a, b) { return a - b; }).join(", ") + "</p></div>");
 		}
 	}).catch((error) => {
-		$("#id_hg_asns").html("<p class=\"mt-3\">Hypergiants operating off-nets in <b>AS" + $("#findOffnetsASNInput").val() + "</b>:</br><div class=\"alert alert-warning mt-1\" role=\"alert\"><p>No Hypergiant off-nets found.</p></div>");
 	});
 }
