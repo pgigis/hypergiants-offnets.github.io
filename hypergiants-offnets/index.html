@@ -1,1 +1,180 @@
-Coming soon...
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Seven Years in the Life of Hypergiants’ off-nets · Portal</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<div class="col-lg-8 mx-auto mb-5 py-md-5">
+  <header class="d-flex align-items-center pb-2 mb-5 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <span class="fs-1">Seven Years in the Life of Hypergiants’ Off-Nets</span>
+    </a>
+  </header>
+  <main>
+    <h2>Off-nets in your Internet Service Provider (ISP):</h2>
+    <hr class="col-3 col-md-12 mb-3">
+    <p class="fs-6 col-md-12" id="id_isp_details">Loading ISP information...</p>
+    <b>The following hypergiants operate off-nets in your ISP: (Snapshot: April 2021, Source: Censys)</b>
+    <p class="fs-6 col-md-12" id="id_isp_hgs">Loading ISP Hypergiant information...</p>
+
+    <h2 class="mt-4">Explore off-net server deployments per ASN:</h2>
+    <hr class="col-3 col-md-12 mb-3">
+
+    <div class="row gy-2 gx-3 align-items-center">
+      <div class="col-auto">
+        <label class="visually-hidden" for="findOffnetsASNInput">ASN (e.g., 6799)</label>
+          <input type="text" class="form-control" id="findOffnetsASNInput" placeholder="ASN (e.g., 6799)">
+      </div>
+      <div class="col-auto">
+        <button type="submit" onclick="findOffnetsPerASN();" id="findOffnetsASN" class="btn btn-primary">Find Off-Nets</button>
+      </div>
+    </div>
+    <p class="fs-6 col-md-12" id="id_asn_hgs"></p>
+
+
+    <h2 class="mt-4">Explore off-net server deployments per Hypergiant:</h2>
+    <hr class="col-3 col-md-12 mb-3">
+    <div class="row gy-2 gx-3 align-items-center">
+      <div class="col-auto">
+        <select id="inputHypergiant" class="form-control">
+          <option selected value="null">Select Hypergiant...</option>
+          <option value="akamai">Akamai</option>
+          <option value="alibaba">Alibaba</option>
+          <option value="amazon">Amazon</option>
+          <option value="apple">Apple</option>
+          <option value="bamtech">Bamtech</option>
+          <option value="highwinds">Highwinds</option>
+          <option value="cdn77">CDN77</option>
+          <option value="cachefly">Cachefly</option>
+          <option value="cdnetworks">Cdnetworks</option>
+          <option value="chinacache">Chinacache</option>
+          <option value="cloudflare">Cloudflare</option>
+          <option value="disney">Disney</option>
+          <option value="facebook">Facebook</option>
+          <option value="fastly">Fastly</option>
+          <option value="google">Google</option>
+          <option value="hulu">Hulu</option>
+          <option value="incapsula">Incapsula</option>
+          <option value="limelight">Limelight</option>
+          <option value="microsoft">Microsoft</option>
+          <option value="netflix">Netflix</option>
+          <option value="twitter">Twitter</option>
+          <option value="verizon">Verizon</option>
+          <option value="yahoo">Yahoo</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button type="submit" onclick="findOffnetsPerHypergiant();" id="findOffnetsHG" class="btn btn-primary">Find Off-Nets</button>
+      </div>
+    </div>
+
+    <p class="fs-6 col-md-12" id="id_hg_asns"></p>
+
+    <div class="row g-5 mb-3 mt-1">
+      <div class="col-md-12">
+        <h2>Publications</h2>
+        <hr class="col-3 col-md-12">
+        <ul>
+          <li>
+            <h4> "Seven years in the life of Hypergiants' off-nets" </h4>
+             Petros Gigis, Matt Calder, Lefteris Manassakis, George Nomikos, Vasileios Kotronis, Xenofontas Dimitropoulos, Ethan Katz-Bassett, Georgios Smaragdakis, </br> <i>In proceedings of the 2021 ACM SIGCOMM 2021 Conference.</i> (<a href="https://dl.acm.org/doi/10.1145/3452296.3472928" target="_blank">https://dl.acm.org/doi/10.1145/3452296.3472928</a>)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-6">
+        <h2>Software / Datasets</h2>
+        <hr class="col-3 col-md-12">
+        <p>The software is publicly available through GitHub.</p>
+        <ul class="icon-list">
+          <li class="text-muted"> <a href="https://github.com/pgigis/sigcomm2021-hypergiants-offnets" target="_blank"> Software </a></li>
+        </ul>
+        </br>
+        <p>The dataset documentation is available through.</p>
+        <ul class="icon-list">
+          <li class="text-muted"> <a href="https://github.com/pgigis/sigcomm2021-hypergiants-offnets" target="_blank"> Datasets </a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h2>People</h2>
+        <hr class="col-3 col-md-12">
+        <ul class="list">
+          <li><a href="https://www.pgigis.net" target="_blank">Petros Gigis</a>, University College London</li>
+          <li><a href="https://www.microsoft.com/en-us/research/people/mcalder/" target="_blank">Matt Calder</a>, Microsoft & Columbia University</li>
+          <li><a href="https://www.linkedin.com/in/manassakis/" target="_blank">Lefteris Manassakis</a>, FORTH-ICS</li>
+          <li><a href="https://www.linkedin.com/in/georgenomikos/" target="_blank">George Nomikos</a>, FORTH-ICS & Lancaster University</li>
+          <li><a href="https://www.linkedin.com/in/vasileios-kotronis/" target="_blank">Vasileios Kotronis</a>, FORTH-ICS</li>
+          <li><a href="http://www.inspire.edu.gr/~fontas/" target="_blank">Xenofontas Dimitropoulos</a>, FORTH-ICS & University of Crete</li>
+          <li><a href="http://www.columbia.edu/~ebk2141" target="_blank">Ethan Katz-Bassett</a>, Columbia University</li>
+          <li><a href="https://gsmaragd.github.io" target="_blank">Georgios Smaragdakis</a>, TU Delft</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h2>Acknowledgemens</h2>
+        <hr class="col-3 col-md-12">
+        <p>We are grateful to <a href="https://www.rapid7.com" target="_blank">Rapid7</a> and <a href="https://censys.io" target="_blank">Censys</a> for providing us research access to their datasets.</br> This work and its dissemination efforts are partially supported by the European Research Council (ERC) Starting Grant <a href="https://gsmaragd.github.io/research/ResolutioNet/" target="_blank">ResolutioNet</a> (ERC-StG-679158) and by NSF awards CNS-1836872 and CNS-2028550.</p>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h2>Contact Person</h2>
+        <hr class="col-3 col-md-12">
+        <p>Petros Gigis - p.gkigkis (at) cs dot ucl (dot) ac dot uk </p>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="pt-2 my-5 text-muted border-top">
+    Last Update: 24/08/2021 &middot; &copy; 2021
+  </footer>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+
+  </body>
+  <script>
+    $(document).ready(function() {
+      init();
+    });
+  </script>
+</html>
